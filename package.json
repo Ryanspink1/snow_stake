@@ -1,0 +1,30 @@
+{
+  "name": "snow_stake",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ryanspink1/snow_stake.git"
+  },
+  "author": "Ryan S",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ryanspink1/snow_stake/issues"
+  },
+  "homepage": "https://github.com/Ryanspink1/snow_stake#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "knex": "^0.14.0",
+    "pg": "^7.4.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^4.0.1",
+    "nodemon": "^1.12.1"
+  }
+}
