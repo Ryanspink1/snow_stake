@@ -2,7 +2,7 @@
 exports.up = function(knex, Promise) {
   let createResorts = `CREATE TABLE resorts(
     id SERIAL PRIMARY KEY NOT NULL,
-    name, TEXT,
+    name TEXT,
     snowstake_url TEXT,
     created_at TIMESTAMP
   )`

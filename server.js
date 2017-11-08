@@ -1,10 +1,24 @@
-// server.js
 var express = require('express')
 var app = express()
+var bodyParser = require('body-parser')
+var md5 = require('md5')
 
-app.get('/', function(request, response) {
-  response.send('It\'s a secret to everyone.')
-})
+var ResortsController = require('./lib/controllers/resorts-controller')
 
-// set the port for Express to run on
-app.listen(3000)
+var environment   = process.env.NODE_ENV || 'development'
+var configuration = require('./knexfile')[environment];
+var database      = require('knex')(configuration);
+const cors = require('cors');
+
+app.set('port', process.env.PORT || 3000)
+app.locals.title = 'Snow Stake'
+
+app.get('/api/v1/resorts', ResortsController.index);
+
+if(!module.parent){
+  app.listen(app.get('port'), () => {
+    console.log((app.locals.title) + ' is running on ' + (app.get('port')))
+  });
+};
+
+module.exports = app;
