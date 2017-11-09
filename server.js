@@ -10,6 +10,11 @@ var configuration = require('./knexfile')[environment];
 var database      = require('knex')(configuration);
 const cors = require('cors');
 
+app.use(cors({origin: '*'}));
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
+
 app.set('port', process.env.PORT || 3000)
 app.locals.title = 'Snow Stake'
 
