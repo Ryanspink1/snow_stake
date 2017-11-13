@@ -20,7 +20,6 @@ app.set('port', process.env.PORT || 3000)
 app.locals.title = 'Snow Stake'
 
 app.get('/api/v1/resorts', ResortsController.index);
-app.get('/api/v1/resorts/update', Forecasts.updateForecasts);
 
 if(!module.parent){
   app.listen(app.get('port'), () => {

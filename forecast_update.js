@@ -5,8 +5,8 @@ var Forecasts = require('./lib/models/forecast')
 pry = require('pryjs')
 var request = require('request');
 
-function updateForecasts(){
 
+function updateForecasts(){
   request({url:'https://peaceful-beach-96299.herokuapp.com/http://opensnow.com/api/public/1.0/locations/data?apikey=where&lids=2,24,5,6,7,8,3,1,12,13,14,15,16&type=json', headers: {'origin': 'www.google.com'}}, function (error, response, body) {
         console.log('error:', error);
         console.log('statusCode:', response && response.statusCode);
@@ -112,9 +112,10 @@ function sendUpdateToDatabase(){
     // database('resorts').where({open_snow_id:finalData[i].opensnow_id}).select('id').then(function (data){finalData[i].forecast_id= JSON.parse(JSON.stringify(data))[0].id.toString()}).then(Forecasts.update(finalData[i]))
     Forecasts.update(finalData[i])
   }
-  setTimeout(process.exit(), 2000);
+  setTimeout(process.exit, 10000)
 }
 
+updateForecasts()
 module.exports = {
   updateForecasts:updateForecasts
 }
