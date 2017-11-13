@@ -1,7 +1,8 @@
 var express = require('express')
 var app = express()
 var bodyParser = require('body-parser')
-var md5 = require('md5')
+var md5 = require('md5')``
+var Forecasts = require('./bin')
 
 var ResortsController = require('./lib/controllers/resorts-controller')
 
@@ -19,6 +20,7 @@ app.set('port', process.env.PORT || 3000)
 app.locals.title = 'Snow Stake'
 
 app.get('/api/v1/resorts', ResortsController.index);
+app.get('/api/v1/resorts/update', Forecasts.updateForecasts);
 
 if(!module.parent){
   app.listen(app.get('port'), () => {
